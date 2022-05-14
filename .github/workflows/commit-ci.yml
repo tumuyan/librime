@@ -132,3 +132,17 @@ jobs:
 
       - name: Unit test
         run: .\build.bat test
+
+ 
+      - name: Copy lib
+        run: |
+          copy build\lib\Release\rime.dll build\bin\
+          move build\bin\Release\*.exe build\bin\
+
+      - name: Upload Win artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: librime_win
+          path: build\bin
+          # keep 90 days
+          retention-days: 90
