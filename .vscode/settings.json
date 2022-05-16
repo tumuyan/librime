@@ -1,0 +1,33 @@
+{
+    "files.associations": {
+        "*.md": "markdown",
+        "charconv": "cpp",
+        "chrono": "cpp",
+        "format": "cpp",
+        "locale": "cpp",
+        "regex": "cpp",
+        "xlocale": "cpp",
+        "future": "cpp",
+        "iomanip": "cpp",
+        "map": "cpp",
+        "random": "cpp",
+        "set": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "xhash": "cpp",
+        "xmemory": "cpp",
+        "xstring": "cpp",
+        "xutility": "cpp",
+        "array": "cpp",
+        "deque": "cpp",
+        "forward_list": "cpp",
+        "initializer_list": "cpp",
+        "list": "cpp",
+        "valarray": "cpp",
+        "vector": "cpp",
+        "xiosbase": "cpp",
+        "xtree": "cpp",
+        "system_error": "cpp",
+        "typeindex": "cpp"
+    }
+}
