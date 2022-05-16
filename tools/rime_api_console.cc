@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <rime_api.h>
+#include <time.h>
 
 void print_status(RimeStatus *status) {
   printf("schema: %s / %s\n",
@@ -64,7 +65,7 @@ void print_context(RimeContext *context) {
   if (context->composition.length > 0) {
     print_composition(&context->composition);
     print_menu(&context->menu);
-  } else {
+   } else {
     printf("(not composing)\n");
   }
 }
@@ -187,11 +188,11 @@ int main(int argc, char *argv[]) {
 
   RimeSessionId session_id = rime->create_session();
   if (!session_id) {
-    fprintf(stderr, "Error creating rime session.\n");
-    return 1;
+      fprintf(stderr, "Error creating rime session.\n");
+      return 1;
   }
 
-  const int kMaxLength = 99;
+    const int kMaxLength = 99;
   char line[kMaxLength + 1] = {0};
   while (fgets(line, kMaxLength, stdin) != NULL) {
     for (char *p = line; *p; ++p) {
@@ -204,10 +205,13 @@ int main(int argc, char *argv[]) {
       break;
     if (execute_special_command(line, session_id))
       continue;
+    float time_start = clock();
     if (rime->simulate_key_sequence(session_id, line)) {
-      print(session_id);
+        float time_end = clock();
+        fprintf(stderr, "time:\t%.3f second\n", (time_end - time_start) / CLOCKS_PER_SEC);
+        print(session_id);
     } else {
-      fprintf(stderr, "Error processing key sequence: %s\n", line);
+        fprintf(stderr, "Error processing key sequence: %s\n", line);
     }
   }
 
