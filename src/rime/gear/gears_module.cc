@@ -25,6 +25,7 @@
 #include <rime/gear/reverse_lookup_translator.h>
 #include <rime/gear/schema_list_translator.h>
 #include <rime/gear/script_translator.h>
+#include <rime/gear/s2_translator.h>
 #include <rime/gear/selector.h>
 #include <rime/gear/shape.h>
 #include <rime/gear/simplifier.h>
@@ -70,6 +71,7 @@ static void rime_gears_initialize() {
   r.Register("table_translator", new Component<TableTranslator>);
   r.Register("script_translator", new Component<ScriptTranslator>);
   r.Register("r10n_translator", new Component<ScriptTranslator>);  // alias
+  r.Register("s2_translator", new Component<S2Translator>);  // alias
   r.Register("reverse_lookup_translator",
              new Component<ReverseLookupTranslator>);
   r.Register("schema_list_translator", new Component<SchemaListTranslator>);
